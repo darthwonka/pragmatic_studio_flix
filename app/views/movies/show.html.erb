@@ -1,0 +1,33 @@
+  <section class="movie">
+  <div class="image">
+    <%= image_tag(@movie.image_file_name)%>
+    </div>
+    <div class="summary">
+      <h2>
+        <%= @movie.title %>
+      </h2>
+      <h3> 
+        Rated <%= @movie.rating %> <br />
+        Duration <%= @movie.duration %> <br />
+        Director <%= @movie.director %> 
+      </h3>
+      <h3>
+        <%= total_gross(@movie) %>
+      </h3>
+      <p>
+        <%= @movie.description %>
+      </p>
+          <span class="stars">
+           <%= render "shared/stars", percent: @movie.average_stars_as_percent %>
+        </span>  
+        <div class="reviews">
+        <%= link_to pluralize(@movie.reviews.size, "review"), 
+                          movie_reviews_path(@movie) %>
+        </div>
+    </div>
+  </section>
+  <section class="admin">
+    <%= link_to "Edit", edit_movie_path(@movie), class: "button" %>
+    <%= link_to "Delete", @movie, class: "button", method: :delete,
+              data: { confirm: "Are you sure you want to delete #{@movie.title}? "} %>
+  </section>

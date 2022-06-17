@@ -1,0 +1,10 @@
+<section class="user">
+  <div class="image">
+    <%= profile_image(@user) %>
+    </div>
+<h1><%= @user.name %></h2>
+<p>
+    <%= mail_to(@user.email) %><br/>
+    Updated on: <%= @user.updated_at.to_s %>
+</p>
+</section>

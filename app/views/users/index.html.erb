@@ -1,0 +1,23 @@
+<h1>User List</h1>
+<hl />
+<div class="container">
+    <div class="row">
+<% newline = 3 %>
+<% @users.each do |user| %>
+        <div class="col-sm-4">
+            <h3><%= link_to user.name, user %></h3>
+            <p><%= user.email %><br/>
+            Last updated: <%= user.updated_at %></p>
+        </div>
+    <% if newline == 4  %>
+    <%=    puts '</div><div class="row">'%>
+    <% newline = 1 %>
+    <% else %>
+    <% newline += 1 %>
+    <% end %> 
+<% end %>
+   </div>
+</div>
+
+
+  

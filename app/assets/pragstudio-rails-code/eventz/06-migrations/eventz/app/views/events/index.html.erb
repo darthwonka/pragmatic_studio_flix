@@ -1,0 +1,15 @@
+<ul>
+  <% @events.each do |event| %>
+    <li>
+      <strong><%= event.name %></strong>
+      in <%= event.location %>:
+      <%= number_to_currency(event.price, precision: 0) %>
+    </li>
+    <p>
+      <%= event.description %>
+    </p>
+    <p>
+      <%= event.starts_at %>
+    </p>
+  <% end %>
+</ul>

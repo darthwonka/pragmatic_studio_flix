@@ -1,0 +1,16 @@
+<%= image_tag (@movie.image_file_name) %>
+<h1>Reviews for <%= link_to @movie.title, movie_path(@movie) %></h1>
+<div class="reviews">
+<ul class="reviews">
+<% @reviews.each do |review| %>
+    <li><%= render "shared/stars", percent: review.stars_as_percent %>
+        <%= review.name %> says<br/>
+        <blockquote>&quot; <%= review.comment %> &quot;</blockquote>
+        <%= link_to "Edit", edit_movie_review_url(@movie, review), class: "button" %>
+        <%= link_to "Delete", movie_review_url(@movie,review), class: "button", method: :delete,
+              data: { confirm: "Are you sure you want to delete this review?  NOTE: this is permanent!"} %>
+    </li>
+<%end%>
+</ul>
+<%= link_to "New Review", new_movie_review_path(@movie), class: "review" %>
+</div>
