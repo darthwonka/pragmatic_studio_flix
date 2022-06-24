@@ -2,10 +2,25 @@
 <nav>
     <%= link_to(image_tag("logo.png"),movies_path) %>
     <ul class="left">
-      <li><%= link_to("All Movies", movies_path) %></li>
-      </ul>
+      <li><%= nav_link_to "All Movies", movies_path %></li>
+      <li><%= nav_link_to "Recent Movies", movie_filter_path('recent') %></li>
+      <li><%= nav_link_to "Upcoming Movies", movie_filter_path('upcoming') %></li>
+      <li><%= nav_link_to "Flops", movie_filter_path('flop') %></li>
+      <li><%= nav_link_to "Blockbusters", movie_filter_path('blockbuster') %></li>
+      <li><%= nav_link_to "Users", users_url %>   </li>
+    </ul>
    <ul class="right">
-      <li><%= link_to "Sign Up", signup_url, class: "button" %>   </li>
+   <% if session[:user_id] %>
+      <li>Hello, <%= link_to User.find(session[:user_id]).name, user_path(session[:user_id]), class: "btn btn-normal" %>!
+         <ul>
+            <li><%= link_to "Edit Account Settings", edit_user_path(session[:user_id]), class: "btn btn-normal" %></li>
+            <li><%= link_to "Sign Out", session_path, method: :delete, class: "btn btn-notice" %>
+         </ul>
+      </li>
+   <% else  %>
+      <li><%= link_to "Log In", new_session_path, class: "btn btn-success" %>   </li>
+      <li><%= link_to "Sign Up", signup_url, class: "btn btn-success" %>   </li>
+   <% end %>
    </ul>
-   </nav>
-    </header>
+</nav>
+</header>

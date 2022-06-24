@@ -48,7 +48,7 @@ header {
   margin-bottom: 3rem;
 
   nav {
-    @extend .navbar, .navbar-expand-md !optional;
+    @extend .navbar, .navbar-expand-md ;
 
     img {
       height: 50px;
@@ -60,11 +60,11 @@ header {
     }
 
     a.button {
-      @extend .btn, .btn-outline-secondary !optional;
+      @extend .btn, .btn-outline-secondary ;
     }
 
     ul {
-      @extend .nav, .navbar-nav !optional;
+      @extend .nav, .navbar-nav ;
       letter-spacing: 1px;
 
       &.left {
@@ -73,6 +73,7 @@ header {
 
       &.right {
         @extend .ml-auto !optional;
+
       }
 
       li {

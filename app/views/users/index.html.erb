@@ -5,9 +5,23 @@
 <% newline = 3 %>
 <% @users.each do |user| %>
         <div class="col-sm-4">
-            <h3><%= link_to user.name, user %></h3>
-            <p><%= user.email %><br/>
-            Last updated: <%= user.updated_at %></p>
+          <div class="image">
+            <%= profile_image(user) %>
+          </div>
+          <h3><%= link_to user.name, user %></h3>
+          <p><%= user.email %><br/>
+          Last updated: <%= user.updated_at %></p>
+        <% if current_user?(user)  || current_user_is_admin? %>
+
+            <div class="actions" style="font-size: -2pt;">
+        <%=     link_to "Edit Account", edit_user_path(user), class: "btn btn-info" %>
+        <% end %>
+        <% if current_user_is_admin? %>
+        <%=     link_to "Delete", user, class: "btn btn-danger", method: :delete,
+                                data: { confirm: "Are you sure you want to delete #{user.name}? "} %>
+            </div>
+        <% end %>
+        <p>&nbsp;</P>
         </div>
     <% if newline == 4  %>
     <%=    puts '</div><div class="row">'%>

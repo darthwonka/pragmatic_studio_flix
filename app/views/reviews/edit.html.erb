@@ -1,2 +1,2 @@
-<h1> Editing <%= @movie.title %> review from <%= @review.name %></h1>
-    <%= render "form", review: [@movie,@review] %>
+<h1> Editing <%= @movie.title %> review from <%= @review.user.name %></h1>
+    <%= render "form", review: [@review] %>

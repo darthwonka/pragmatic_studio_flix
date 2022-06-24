@@ -174,3 +174,13 @@ Movie.create!([
     image_file_name: "wonder-woman.png"
   }
 ])
+
+Genre.create!([
+  { name: 'Action' },
+  { name: 'Comedy'},
+  { name: 'Drama'},
+  { name: 'Thriller'},
+  { name: 'Romance'},
+  { name: 'Science Fiction'},
+  { name: 'Adult'}
+])
