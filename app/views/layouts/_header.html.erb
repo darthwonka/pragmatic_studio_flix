@@ -11,9 +11,9 @@
     </ul>
    <ul class="right">
    <% if session[:user_id] %>
-      <li>Hello, <%= link_to User.find(session[:user_id]).name, user_path(session[:user_id]), class: "btn btn-normal" %>!
+      <li>Hello, <%= link_to User.find(session[:user_id]).name, user_path(User.find(session[:user_id]).username), class: "btn btn-normal" %>!
          <ul>
-            <li><%= link_to "Edit Account Settings", edit_user_path(session[:user_id]), class: "btn btn-normal" %></li>
+            <li><%= link_to "Edit Account Settings", edit_user_path(User.find(session[:user_id]).username), class: "btn btn-normal" %></li>
             <li><%= link_to "Sign Out", session_path, method: :delete, class: "btn btn-notice" %>
          </ul>
       </li>
