@@ -184,3 +184,19 @@ Genre.create!([
   { name: 'Science Fiction'},
   { name: 'Adult'}
 ])
+
+User.create!([
+{ name: "Michael Belanger",
+ username: "mrb",
+ email: "michael@salusitgroup.com",
+ aboutme: 
+    %{
+      When bitten by a genetically modified spider, a nerdy, shy, and
+      awkward high school student gains spider-like abilities that he
+      eventually must use to fight evil as a superhero after tragedy
+      befalls his family.
+    }.squish,
+ password: "secret",
+ admin: true 
+} 
+])
