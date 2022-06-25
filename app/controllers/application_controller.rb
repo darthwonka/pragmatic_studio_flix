@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
     end
 
     def require_correct_user
-        @user = User.find(params[:id])
+        @user = User.find_by(username: params[:id])
         unless current_user?(@user) || current_user_is_admin?
             redirect_to movies_url, alert: "**Unauthorized**"
         end
